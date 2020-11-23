@@ -9,3 +9,5 @@ The first simple Demo, to have :
     4. Simple request, repley;
 
 Simple Demo, but Full Design!
+
+Hello, to test the notification.
