@@ -6,4 +6,14 @@ class AbstractObject(QtCore.QObject):
     def __init__(self):
         pass
 
-    def
+    def where():
+        pass
+
+    def requestToDo():
+        pass
+
+    def processObjEvent():
+        pass
+
+
+
