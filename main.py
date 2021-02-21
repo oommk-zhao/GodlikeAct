@@ -2,6 +2,8 @@
 import sys
 from PySide2.QtWidgets import QApplication, QMainWindow
 
+from AbstractObject import *
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
