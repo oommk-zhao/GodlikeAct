@@ -8,7 +8,8 @@ from DummyControl import *
 if __name__ == "__main__":
     app = QApplication([])
     dummyControl_ = DummyControl()
-    dummyControl_.generateSingleObject()
+
+    dummyControl_.startTheWorld()
     dummyControl_.showTheWorld()
 
     sys.exit(app.exec_())

@@ -17,6 +17,12 @@ class DummyControl(QtCore.QObject):
     def showTheWorld(self):
         self.mainWidget_.show()
 
+    def startTheWorld(self):
+        self.generateSingleObject()
+
+        for objectIt in self.objectList:
+            objectIt.activeObject()
+
     @Slot()
     def generateSingleObject(self):
         singleObject = AbstractObject()
