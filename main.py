@@ -1,17 +1,14 @@
 # This Python file uses the following encoding: utf-8
 import sys
-from PySide2.QtWidgets import QApplication, QMainWindow
+from PySide2.QtWidgets import QApplication
 
-from AbstractObject import *
-
-
-class MainWindow(QMainWindow):
-    def __init__(self):
-        QMainWindow.__init__(self)
+from DummyControl import *
 
 
 if __name__ == "__main__":
     app = QApplication([])
-    window = MainWindow()
-    window.show()
+    dummyControl_ = DummyControl()
+    dummyControl_.generateSingleObject()
+    dummyControl_.showTheWorld()
+
     sys.exit(app.exec_())
