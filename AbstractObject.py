@@ -3,19 +3,23 @@ from PySide2 import QtCore
 from PySide2.QtCore import QObject, Signal, Slot, QTimer
 import random
 
+from AbstractMap import *
+
 
 class AbstractObject(QtCore.QObject):
 
     signalRequestToDo = Signal()
 
-    def __init__(self):
+    def __init__(self, mapInstance):
         QObject.__init__(self)
         self.position = (0, 0)
-        self.signalRequestToDo.connect(self.processObjEvent)
+        #self.signalRequestToDo.connect(self.processObjEvent)
         self.xRange = 0
         self.yRange = 0
         self.eventGenerateTimer = QTimer()
         self.eventGenerateTimer.timeout.connect(self.requestToDo)
+
+        self.worldMapInstance = mapInstance
 
     def where(self):
         return self.position
@@ -36,7 +40,14 @@ class AbstractObject(QtCore.QObject):
 
     @Slot()
     def processObjEvent(self):
-        print ("we are moving")
+        availablePointList = self.worldMapInstance.getAvailableNextPositionList(self.position)
+
+        targetIndex = random.randint(0, (len(availablePointList) - 1))
+
+        print ("we are moving from :", self.position)
+        self.position = availablePointList[targetIndex]
+        print ("and the target is :", self.position)
+
 
 
 

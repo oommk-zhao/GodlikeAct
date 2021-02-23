@@ -12,3 +12,5 @@ Simple Demo, but Full Design!
 
 Hello, to test the notification.
 Nothing there, shade.
+
+https://www.w3school.com.cn/python/numpy_creating_arrays.asp

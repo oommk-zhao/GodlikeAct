@@ -12,6 +12,7 @@ class DummyControl(QtCore.QObject):
         QObject.__init__(self)
         self.mainWidget_ = MainWidget()
         self.worldMap = AbstractMap()
+
         self.objectList = []
 
     def showTheWorld(self):
@@ -24,9 +25,14 @@ class DummyControl(QtCore.QObject):
             objectIt.activeObject()
 
     @Slot()
+    def processEvent(self):
+        self.sender().processObjEvent()
+
+    @Slot()
     def generateSingleObject(self):
-        singleObject = AbstractObject()
+        singleObject = AbstractObject(self.worldMap)
         singleObject.setRange(self.worldMap.getRange()[0], self.worldMap.getRange()[1])
         singleObject.generatePosition(self.worldMap.getRange()[0], self.worldMap.getRange()[1])
+        singleObject.signalRequestToDo.connect(self.processEvent)
+
         self.objectList.append(singleObject)
-        print (singleObject.where())
