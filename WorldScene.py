@@ -3,5 +3,5 @@ from PySide2 import QtWidgets
 from PySide2.QtWidgets import QGraphicsScene
 
 class WorldScene(QGraphicsScene):
-    def __init__(self):
-        QGraphicsScene.__init__(self)
+    def __init__(self, parent = None):
+        QGraphicsScene.__init__(self, parent)

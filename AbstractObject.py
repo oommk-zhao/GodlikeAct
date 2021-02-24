@@ -10,13 +10,13 @@ class AbstractObject(QtCore.QObject):
 
     signalRequestToDo = Signal()
 
-    def __init__(self, mapInstance):
-        QObject.__init__(self)
+    def __init__(self, mapInstance, parent = None):
+        QObject.__init__(self, parent)
         self.position = (0, 0)
         #self.signalRequestToDo.connect(self.processObjEvent)
         self.xRange = 0
         self.yRange = 0
-        self.eventGenerateTimer = QTimer()
+        self.eventGenerateTimer = QTimer(self)
         self.eventGenerateTimer.timeout.connect(self.requestToDo)
 
         self.worldMapInstance = mapInstance

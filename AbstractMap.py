@@ -6,8 +6,8 @@ from GlobalDefine import Direction, GlobalDefineClass
 
 class AbstractMap(QtCore.QObject):
     #----
-    def __init__(self):        
-        QObject.__init__(self)
+    def __init__(self, parent = None):
+        QObject.__init__(self, parent)
         #we are using Qt x.y coordinate
         self.xMax = 2
         self.yMax = 2

@@ -6,27 +6,19 @@ from MainWidget import *
 from AbstractObject import *
 from AbstractMap import *
 
-from MapBlockGraphicsItem import *
-from ObjectGraphicsItem import *
-from MainViewer import *
-from WorldScene import *
+
 
 
 class DummyControl(QtCore.QObject):
-    def __init__(self):
-        QObject.__init__(self)
+    def __init__(self, parent = None):
+        QObject.__init__(self, parent)
         self.mainWidget_ = MainWidget()
-        self.worldMap = AbstractMap()
+        self.worldMap = AbstractMap(self)
 
         self.objectList = []
 
-        self.test = MapBlockGraphicsItem()
-        self.test2 = ObjectGraphicsItem()
-        self.test3 = MainViewer()
-        self.test4 = WorldScene()
-
     def showTheWorld(self):
-        self.mainWidget_.show()
+        self.mainWidget_.showTheWorld()
 
     def startTheWorld(self):
         self.generateSingleObject()

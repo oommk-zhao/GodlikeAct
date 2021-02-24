@@ -3,6 +3,6 @@ from PySide2 import QtWidgets
 from PySide2.QtWidgets import QGraphicsItem
 
 class MapBlockGraphicsItem(QGraphicsItem):
-    def __init__(self):
-        QGraphicsItem.__init__(self)
+    def __init__(self, parent = None):
+        QGraphicsItem.__init__(self, parent)
 

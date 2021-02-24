@@ -3,5 +3,5 @@ from PySide2 import QtCore
 
 
 class ObjectEventHandler(QtCore.QObject):
-    def __init__(self):
+    def __init__(self, parent = None):
         pass
