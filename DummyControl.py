@@ -6,6 +6,11 @@ from MainWidget import *
 from AbstractObject import *
 from AbstractMap import *
 
+from MapBlockGraphicsItem import *
+from ObjectGraphicsItem import *
+from MainViewer import *
+from WorldScene import *
+
 
 class DummyControl(QtCore.QObject):
     def __init__(self):
@@ -14,6 +19,11 @@ class DummyControl(QtCore.QObject):
         self.worldMap = AbstractMap()
 
         self.objectList = []
+
+        self.test = MapBlockGraphicsItem()
+        self.test2 = ObjectGraphicsItem()
+        self.test3 = MainViewer()
+        self.test4 = WorldScene()
 
     def showTheWorld(self):
         self.mainWidget_.show()
