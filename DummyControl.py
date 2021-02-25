@@ -12,8 +12,9 @@ from AbstractMap import *
 class DummyControl(QtCore.QObject):
     def __init__(self, parent = None):
         QObject.__init__(self, parent)
-        self.mainWidget_ = MainWidget()
+
         self.worldMap = AbstractMap(self)
+        self.mainWidget_ = MainWidget(self.worldMap)
 
         self.objectList = []
 

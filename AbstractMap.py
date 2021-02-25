@@ -26,7 +26,7 @@ class AbstractMap(QtCore.QObject):
 
     #----
     def getRange(self):
-        return (self.xMax, self.yMax)
+        return [self.xMax, self.yMax]
 
     #----
     def setRange(self, xMax, yMax):
