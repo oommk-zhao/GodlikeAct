@@ -12,6 +12,10 @@ class Direction(Enum):
     NorthWest = [-1, -1]
     InSitu = [0, 0]
 
-class GlobalDefineClass():
+class GlobalDefine():
     xIndex = 0
     yIndex = 1
+    worldScenePosX = 0
+    worldScenePosY = 0
+    worldSceneWidth = 0
+    worldSceneHeight = 0

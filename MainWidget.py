@@ -27,33 +27,34 @@ class MainWidget(QtWidgets.QWidget):
         tempPalette.setColor(QPalette.ColorRole.Background, QtCore.Qt.GlobalColor.darkGreen)
         self.setPalette(tempPalette)
 
-        self.WorldSceneInstance = WorldScene(self)
+        self.worldSceneInstance = WorldScene(self)
+        self.worldSceneInstance.setSceneRect(-5, -5, 310, 310)
 
-        self.MainViewerInstance = MainViewer(self)
-        #self.MainViewerInstance.setGeometry(235, 135, 300,300)
-        self.MainViewerInstance.setGeometry(50, 50, 700,500)
-        self.MainViewerInstance.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.MainViewerInstance.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.MainViewerInstance.setScene(self.WorldSceneInstance)
+        self.mainViewerInstance = MainViewer(self)
+        self.mainViewerInstance.setGeometry(235, 135, 310,310)
+        #self.mainViewerInstance.setGeometry(50, 50, 700,500)
+        self.mainViewerInstance.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.mainViewerInstance.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.mainViewerInstance.setScene(self.worldSceneInstance)
 
         self.generateMapBlock()
 
     #____
     def showTheWorld(self):
         self.show()
-        self.MainViewerInstance.update()
+        self.mainViewerInstance.update()
 
     #____
     def generateMapBlock(self):
 
         worldMapRange = self.worldMapObj.getRange()
 
-        for i in range (-1, worldMapRange[GlobalDefineClass.xIndex]):
-            for j in range (-1, worldMapRange[GlobalDefineClass.yIndex]):
+        for i in range (-1, worldMapRange[GlobalDefine.xIndex]):
+            for j in range (-1, worldMapRange[GlobalDefine.yIndex]):
                 tempMapBlock = MapBlockGraphicsItem()
                 tempMapBlock.setSize(100,100)
                 tempMapBlock.setPosition(i, j)
-                self.WorldSceneInstance.addItem(tempMapBlock)
+                self.worldSceneInstance.addItem(tempMapBlock)
 
     #____
     def generateObjects(self):

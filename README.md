@@ -14,3 +14,9 @@ Hello, to test the notification.
 Nothing there, shade.
 
 https://www.w3school.com.cn/python/numpy_creating_arrays.asp
+
+QGraphicsScene has its Rect.
+QGraphicsView by default, will focus on the QGracphicsScene's center point.
+The items out side of QGraphicsScene, can be scrolled to be displayed.
+
+Lots of property like Anchor, Alignment can be modified to change Scene and View behavior.

@@ -1,7 +1,7 @@
 # This Python file uses the following encoding: utf-8
 from PySide2 import QtCore
 from PySide2.QtCore import QObject
-from GlobalDefine import Direction, GlobalDefineClass
+from GlobalDefine import Direction, GlobalDefine
 
 
 class AbstractMap(QtCore.QObject):
@@ -43,15 +43,15 @@ class AbstractMap(QtCore.QObject):
             for j, k in zip(currentPoint, i.value):
                 nextPoint.append(j + k)
 
-            if nextPoint[GlobalDefineClass.xIndex] > self.xMax:
-                nextPoint[GlobalDefineClass.xIndex] = self.xMin
-            elif nextPoint[GlobalDefineClass.xIndex] < self.xMin:
-                nextPoint[GlobalDefineClass.xIndex] = self.xMax
+            if nextPoint[GlobalDefine.xIndex] > self.xMax:
+                nextPoint[GlobalDefine.xIndex] = self.xMin
+            elif nextPoint[GlobalDefine.xIndex] < self.xMin:
+                nextPoint[GlobalDefine.xIndex] = self.xMax
 
-            if nextPoint[GlobalDefineClass.yIndex] > self.yMax:
-                nextPoint[GlobalDefineClass.yIndex] = self.yMin
-            elif nextPoint[GlobalDefineClass.yIndex] < self.yMin:
-                nextPoint[GlobalDefineClass.yIndex] = self.yMax
+            if nextPoint[GlobalDefine.yIndex] > self.yMax:
+                nextPoint[GlobalDefine.yIndex] = self.yMin
+            elif nextPoint[GlobalDefine.yIndex] < self.yMin:
+                nextPoint[GlobalDefine.yIndex] = self.yMax
 
             nextPointList.append(nextPoint)
 
