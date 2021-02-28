@@ -9,18 +9,16 @@ from ObjectGraphicsItem import *
 from MainViewer import *
 from WorldScene import *
 from AbstractMap import *
+from GlobalDefine import GlobalDefine
+
 
 
 class MainWidget(QtWidgets.QWidget):
     #____
     def __init__(self, worldMapObj, parent = None):
         QWidget.__init__(self, parent)
-        self.setGeometry(0, 0, 800, 600)
+        self.setGeometry(0, 0, GlobalDefine.applicationWidth, GlobalDefine.applicationHeight)
 
-        self.leftMargin = 235
-        self.rightMargin = 235
-        self.topMargin = 135
-        self.bottomMargin = 135
         self.worldMapObj = worldMapObj
 
         tempPalette = self.palette()
@@ -28,16 +26,23 @@ class MainWidget(QtWidgets.QWidget):
         self.setPalette(tempPalette)
 
         self.worldSceneInstance = WorldScene(self)
-        self.worldSceneInstance.setSceneRect(-5, -5, 310, 310)
+        self.worldSceneInstance.setSceneRect(-GlobalDefine.worldSceneHorizontalMargin,
+                                             -GlobalDefine.worldSceneVerticalMargin,
+                                             GlobalDefine.worldSceneWidth,
+                                             GlobalDefine.worldSceneHeight)
 
         self.mainViewerInstance = MainViewer(self)
-        self.mainViewerInstance.setGeometry(235, 135, 310,310)
-        #self.mainViewerInstance.setGeometry(50, 50, 700,500)
+        self.mainViewerInstance.setGeometry(GlobalDefine.worldScenePosX,
+                                            GlobalDefine.worldScenePosY,
+                                            GlobalDefine.worldSceneWidth,
+                                            GlobalDefine.worldSceneHeight)
+
         self.mainViewerInstance.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.mainViewerInstance.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.mainViewerInstance.setScene(self.worldSceneInstance)
 
         self.generateMapBlock()
+
 
     #____
     def showTheWorld(self):
@@ -49,10 +54,11 @@ class MainWidget(QtWidgets.QWidget):
 
         worldMapRange = self.worldMapObj.getRange()
 
-        for i in range (-1, worldMapRange[GlobalDefine.xIndex]):
-            for j in range (-1, worldMapRange[GlobalDefine.yIndex]):
+        for i in range (0, (worldMapRange[GlobalDefine.xIndex] + 1)):
+            for j in range (0, (worldMapRange[GlobalDefine.yIndex] + 1)):
+                tempMapBlock = None
                 tempMapBlock = MapBlockGraphicsItem()
-                tempMapBlock.setSize(100,100)
+                tempMapBlock.setSize(GlobalDefine.mapBlockWidth, GlobalDefine.mapBlockHeight)
                 tempMapBlock.setPosition(i, j)
                 self.worldSceneInstance.addItem(tempMapBlock)
 

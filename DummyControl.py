@@ -5,7 +5,7 @@ from PySide2.QtCore import QObject, Signal, Slot
 from MainWidget import *
 from AbstractObject import *
 from AbstractMap import *
-
+from ObjectAbsCommand import *
 
 
 
@@ -39,3 +39,4 @@ class DummyControl(QtCore.QObject):
         singleObject.signalRequestToDo.connect(self.processEvent)
 
         self.objectList.append(singleObject)
+

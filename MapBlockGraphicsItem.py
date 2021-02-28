@@ -3,6 +3,7 @@ from PySide2 import QtWidgets
 from PySide2.QtWidgets import QGraphicsItem
 from PySide2.QtCore import Qt, QRectF
 from PySide2.QtGui import QPen, QColor
+from GlobalDefine import GlobalDefine
 
 class MapBlockGraphicsItem(QGraphicsItem):
 
@@ -20,12 +21,6 @@ class MapBlockGraphicsItem(QGraphicsItem):
         self.backColor = Qt.GlobalColor.lightGray
         self.backImageStr = None
 
-        self.leftMargin = 5
-        self.rightMargin = 5
-        self.topMargin = 5
-        self.bottomMargin = 5
-
-
     #____
     def paint(self, painter, styleOptionItem, parent):
         painter.setPen(self.paintPen)
@@ -33,7 +28,8 @@ class MapBlockGraphicsItem(QGraphicsItem):
 
     #____
     def boundingRect(self):
-        return QRectF(self.x(), self.y(), self.width, self.height)
+        #return QRectF(self.x(), self.y(), self.width, self.height)
+        return QRectF(0,0,0,0)
 
     #____
     # In demo version, no need to overload this method
@@ -57,7 +53,7 @@ class MapBlockGraphicsItem(QGraphicsItem):
     def setPosition(self, pointX, pointY):
         self.positionX = pointX
         self.positionY = pointY
-        self.setPos(pointX * 100, pointY * 100)
+        self.setPos(pointX * GlobalDefine.mapBlockWidth, pointY * GlobalDefine.mapBlockHeight)
 
     #____
     def setMargin(self, value):

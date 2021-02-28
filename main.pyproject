@@ -1,3 +1,3 @@
 {
-    "files": ["ObjectEventHandler.py","main.py","MapBlockGraphicsItem.py","AbstractMap.py","DummyControl.py","WorldScene.py","StaticObject.py","MainWidget.py","GlobalDefine.py","AbstractObject.py","AnimalObject.py","ObjectGraphicsItem.py","MainViewer.py"]
+    "files": ["StaticObject.py","ObjectGraphicsItem.py","WorldScene.py","AnimalObject.py","DummyControl.py","ObjectEventHandler.py","GlobalDefine.py","MainViewer.py","main.py","MapBlockGraphicsItem.py","AbstractMap.py","AbstractObject.py","MainWidget.py","EventManager.py","ObjectAbsCommand.py"]
 }

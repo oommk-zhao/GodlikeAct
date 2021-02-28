@@ -15,7 +15,14 @@ class Direction(Enum):
 class GlobalDefine():
     xIndex = 0
     yIndex = 1
-    worldScenePosX = 0
-    worldScenePosY = 0
-    worldSceneWidth = 0
-    worldSceneHeight = 0
+    applicationWidth = 1440
+    applicationHeight = 900
+    worldScenePosX = 215
+    worldScenePosY = 145
+    worldSceneWidth = 1014
+    worldSceneHeight = 612
+    worldSceneHorizontalMargin = 5
+    worldSceneVerticalMargin = 5
+    mapBlockWidth = 200
+    mapBlockHeight = 200
+

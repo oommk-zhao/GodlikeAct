@@ -9,7 +9,7 @@ class AbstractMap(QtCore.QObject):
     def __init__(self, parent = None):
         QObject.__init__(self, parent)
         #we are using Qt x.y coordinate
-        self.xMax = 2
+        self.xMax = 4
         self.yMax = 2
         self.xMin = 0
         self.yMin = 0
