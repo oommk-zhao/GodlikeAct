@@ -6,7 +6,7 @@ from MainWidget import *
 from AbstractObject import *
 from AbstractMap import *
 from ObjectAbsCommand import *
-
+from EventManager import *
 
 
 class DummyControl(QtCore.QObject):
@@ -28,15 +28,16 @@ class DummyControl(QtCore.QObject):
             objectIt.activeObject()
 
     @Slot()
-    def processEvent(self):
-        self.sender().processObjEvent()
+    def processObjEvent(self):
+
+
 
     @Slot()
     def generateSingleObject(self):
         singleObject = AbstractObject(self.worldMap)
         singleObject.setRange(self.worldMap.getRange()[0], self.worldMap.getRange()[1])
         singleObject.generatePosition(self.worldMap.getRange()[0], self.worldMap.getRange()[1])
-        singleObject.signalRequestToDo.connect(self.processEvent)
+        singleObject.signalRequestToDo.connect(self.processObjEvent)
 
         self.objectList.append(singleObject)
 
