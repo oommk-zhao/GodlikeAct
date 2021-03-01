@@ -1,8 +1,11 @@
 # This Python file uses the following encoding: utf-8
+from PySide2 import QtCore
+from PySide2.QtCore import QObject
 from AbstractObject import *
 
-class ObjectAbsCommand:
-    def __init__(self, object):
+class ObjectAbsCommand(QtCore.QObject):
+    def __init__(self, object, parent = None):
+        QObject.__init__(self, parent)
         self.object = object
 
     def execute(self):

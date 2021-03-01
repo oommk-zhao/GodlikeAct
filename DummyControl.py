@@ -1,6 +1,6 @@
 # This Python file uses the following encoding: utf-8
 from PySide2 import QtCore
-from PySide2.QtCore import QObject, Signal, Slot
+from PySide2.QtCore import QObject, Signal, Slot, QThread
 
 from MainWidget import *
 from AbstractObject import *
@@ -18,10 +18,17 @@ class DummyControl(QtCore.QObject):
 
         self.objectList = []
 
+        self.eventManager = EventManager()
+
+        #self.objectEventThread = QThread(self)
+        #self.eventManager.moveToThread(self.objectEventThread)
+
+
     def showTheWorld(self):
         self.mainWidget_.showTheWorld()
 
     def startTheWorld(self):
+        #self.objectEventThread.start()
         self.generateSingleObject()
 
         for objectIt in self.objectList:
@@ -29,7 +36,8 @@ class DummyControl(QtCore.QObject):
 
     @Slot()
     def processObjEvent(self):
-
+        objectCommand = ObjectAbsCommand(self.sender())
+        self.eventManager.addObjectEvent(objectCommand)
 
 
     @Slot()
