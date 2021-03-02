@@ -3,7 +3,7 @@ from PySide2 import QtWidgets
 from PySide2.QtWidgets import QGraphicsItem
 from PySide2.QtCore import Qt, QRectF
 from PySide2.QtGui import QPen, QColor
-from GlobalDefine import GlobalDefine
+from OGlobalDefine import GlobalDefine
 
 class MapBlockGraphicsItem(QGraphicsItem):
 

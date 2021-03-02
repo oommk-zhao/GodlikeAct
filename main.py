@@ -2,7 +2,7 @@
 import sys
 from PySide2.QtWidgets import QApplication
 
-from DummyControl import *
+from ODummyControl import *
 
 
 if __name__ == "__main__":

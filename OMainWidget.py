@@ -4,12 +4,12 @@ from PySide2 import QtWidgets
 from PySide2.QtWidgets import QWidget, QAbstractScrollArea
 from PySide2.QtGui import QPalette, QColor
 
-from MapBlockGraphicsItem import *
-from ObjectGraphicsItem import *
-from MainViewer import *
-from WorldScene import *
-from AbstractMap import *
-from GlobalDefine import GlobalDefine
+from OMapBlockGraphicsItem import *
+from OObjectGraphicsItem import *
+from OMainViewer import *
+from OWorldScene import *
+from OAbstractMap import *
+from OGlobalDefine import GlobalDefine
 
 
 
