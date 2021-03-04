@@ -10,8 +10,6 @@ class OObjectAbsCommand(QtCore.QObject):
         self.object = OAbstractObject(object)
 
     def execute(self):
-        print ("inside execute")
         if self.object != None:
-            objectTemp = OAbstractObject(self.object)
-            objectTemp.processTheEvent()
+            self.object.processTheEvent()
 

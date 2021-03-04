@@ -15,9 +15,9 @@ class EventManager(QObject):
         self.objectEventTimer.start(500)
 
     def addObjectEvent(self, objectEvent):
-        self.objectEventList.append(OAbstractObject(objectEvent))
+        self.objectEventList.append(OObjectAbsCommand(objectEvent))
 
     def executeObjectEventList(self):
         for objectIt in self.objectEventList:
-            OObjectAbsCommand(objectIt).execute()
+            objectIt.execute()
 

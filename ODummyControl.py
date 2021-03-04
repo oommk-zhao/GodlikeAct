@@ -36,7 +36,7 @@ class DummyControl(QtCore.QObject):
 
     @Slot()
     def processObjEvent(self):
-        objectCommand = OObjectAbsCommand(OAbstractObject(self.sender()))
+        objectCommand = OObjectAbsCommand(self.sender())
         self.eventManager.addObjectEvent(objectCommand)
 
 

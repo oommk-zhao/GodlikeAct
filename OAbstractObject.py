@@ -19,6 +19,8 @@ class OAbstractObject(QtCore.QObject):
         self.eventGenerateTimer = QTimer(self)
         self.eventGenerateTimer.timeout.connect(self.requestToDo)
 
+        self.testValue = 1
+
         self.worldMapInstance = OAbstractMap(mapInstance)
 
     def where(self):
@@ -36,7 +38,6 @@ class OAbstractObject(QtCore.QObject):
 
     @Slot()
     def requestToDo(self):
-        print ("inside object")
         self.signalRequestToDo.emit()
 
     @Slot()
@@ -49,6 +50,9 @@ class OAbstractObject(QtCore.QObject):
         print ("we are moving from :", self.position)
         self.position = availablePointList[targetIndex]
         print ("and the target is :", self.position)
+
+        print (self.testValue)
+        self.testValue = 10
 
 
 
