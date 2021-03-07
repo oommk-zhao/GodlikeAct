@@ -43,11 +43,20 @@ class MainWidget(QtWidgets.QWidget):
 
         self.generateMapBlock()
 
+        self.generateObjects()
+        self.graphicsItemTest = ObjectGraphicsItem()
+        self.graphicsItemTest.setPosition(2, 1)
+        self.graphicsItemTest.setSize(200, 200)
+        self.worldSceneInstance.addItem(self.graphicsItemTest)
+
 
     #____
     def showTheWorld(self):
         self.show()
         self.mainViewerInstance.update()
+
+        self.graphicsItemTest.moving([1, 1])
+        self.update()
 
     #____
     def generateMapBlock(self):
@@ -64,4 +73,8 @@ class MainWidget(QtWidgets.QWidget):
 
     #____
     def generateObjects(self):
-        tempItem = ObjectGraphicsItem()
+        pass
+        #tempItem = ObjectGraphicsItem()
+        #tempItem.setPosition(2, 1)
+        #tempItem.setSize(200, 200)
+        #self.worldSceneInstance.addItem(tempItem)

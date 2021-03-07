@@ -20,15 +20,15 @@ class DummyControl(QtCore.QObject):
 
         self.eventManager = EventManager()
 
-        #self.objectEventThread = QThread(self)
-        #self.eventManager.moveToThread(self.objectEventThread)
+        self.objectEventThread = QThread(self)
+        self.eventManager.moveToThread(self.objectEventThread)
 
 
     def showTheWorld(self):
         self.mainWidget_.showTheWorld()
 
     def startTheWorld(self):
-        #self.objectEventThread.start()
+        self.objectEventThread.start()
         self.generateSingleObject()
 
         for objectIt in self.objectList:

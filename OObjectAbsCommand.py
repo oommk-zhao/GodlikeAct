@@ -7,7 +7,7 @@ from OAbstractMap import *
 class OObjectAbsCommand(QtCore.QObject):
     def __init__(self, object, parent = None):
         QObject.__init__(self, parent)
-        self.object = OAbstractObject(object)
+        self.object = object
 
     def execute(self):
         if self.object != None:

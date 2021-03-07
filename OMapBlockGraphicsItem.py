@@ -28,7 +28,6 @@ class MapBlockGraphicsItem(QGraphicsItem):
 
     #____
     def boundingRect(self):
-        #return QRectF(self.x(), self.y(), self.width, self.height)
         return QRectF(0,0,0,0)
 
     #____
@@ -53,7 +52,7 @@ class MapBlockGraphicsItem(QGraphicsItem):
     def setPosition(self, pointX, pointY):
         self.positionX = pointX
         self.positionY = pointY
-        self.setPos(pointX * GlobalDefine.mapBlockWidth, pointY * GlobalDefine.mapBlockHeight)
+        self.setPos(self.positionX * GlobalDefine.mapBlockWidth, self.positionY* GlobalDefine.mapBlockHeight)
 
     #____
     def setMargin(self, value):

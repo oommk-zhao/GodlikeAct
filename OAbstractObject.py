@@ -9,14 +9,14 @@ from OAbstractMap import *
 class OAbstractObject(QtCore.QObject):
 
     signalRequestToDo = Signal()
+    signalMoving = Signal(list, list)
 
     def __init__(self, mapInstance, parent = None):
         QObject.__init__(self, parent)
         self.position = [0, 0]
-        #self.signalRequestToDo.connect(self.processObjEvent)
         self.xRange = 0
         self.yRange = 0
-        self.eventGenerateTimer = QTimer(self)
+        self.eventGenerateTimer = QTimer()
         self.eventGenerateTimer.timeout.connect(self.requestToDo)
 
         self.testValue = 1
@@ -31,9 +31,10 @@ class OAbstractObject(QtCore.QObject):
         self.yRange = yRange
 
     def generatePosition(self, xRange, yRange):
-        self.position = (random.randint(0,xRange), random.randint(0,yRange))
+        self.position = [random.randint(0,xRange), random.randint(0,yRange)]
 
     def activeObject(self):
+        pass
         self.eventGenerateTimer.start(1000)
 
     @Slot()
@@ -42,17 +43,16 @@ class OAbstractObject(QtCore.QObject):
 
     @Slot()
     def processTheEvent(self):
-        print ("inside processevent")
         availablePointList = self.worldMapInstance.getAvailableNextPosition(self.position)
 
         targetIndex = random.randint(0, (len(availablePointList) - 1))
+        originalPosition = self.position
 
         print ("we are moving from :", self.position)
         self.position = availablePointList[targetIndex]
         print ("and the target is :", self.position)
 
-        print (self.testValue)
-        self.testValue = 10
+        self.signalMoving.emit(originalPosition, targetIndex)
 
 
 
