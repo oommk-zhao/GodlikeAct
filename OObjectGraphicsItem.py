@@ -8,6 +8,9 @@ from OGlobalDefine import GlobalDefine
 import time
 
 class ObjectGraphicsItem(QGraphicsItem):
+
+    signalUpdateTheWorld = Signal()
+
     #____
     def __init__(self, parent = None):
         QGraphicsItem.__init__(self, parent)
@@ -72,13 +75,14 @@ class ObjectGraphicsItem(QGraphicsItem):
             self.positionX += deltaX
             self.positionY += deltaY
             self.movingStep -= 1
-            self.update()
 
             print ("inside A : ", deltaX, "   ", deltaY)
         else :
             self.processEventTimer.disconnect(self.processEventTimer)
             self.processEventTimer.stop()
             print ("inside B")
+
+        self.signalUpdateTheWorld.emit()
 
 
 

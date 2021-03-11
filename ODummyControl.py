@@ -9,12 +9,12 @@ from OObjectAbsCommand import *
 from OEventManager import *
 
 
-class DummyControl(QtCore.QObject):
+class ODummyControl(QtCore.QObject):
     def __init__(self, parent = None):
         QObject.__init__(self, parent)
 
         self.worldMap = OAbstractMap(self)
-        self.mainWidget_ = MainWidget(self.worldMap)
+        self.mainWidget_ = OMainWidget(self.worldMap)
 
         self.objectList = []
 

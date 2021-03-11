@@ -3,6 +3,7 @@ from PySide2 import QtCore
 from PySide2 import QtWidgets
 from PySide2.QtWidgets import QWidget, QAbstractScrollArea
 from PySide2.QtGui import QPalette, QColor
+from PySide2.QtCore import Signal, Slot, Qt
 
 from OMapBlockGraphicsItem import *
 from OObjectGraphicsItem import *
@@ -13,7 +14,7 @@ from OGlobalDefine import GlobalDefine
 
 
 
-class MainWidget(QtWidgets.QWidget):
+class OMainWidget(QtWidgets.QWidget):
     #____
     def __init__(self, worldMapObj, parent = None):
         QWidget.__init__(self, parent)
@@ -48,7 +49,11 @@ class MainWidget(QtWidgets.QWidget):
         self.graphicsItemTest.setPosition(2, 1)
         self.graphicsItemTest.setSize(200, 200)
         self.worldSceneInstance.addItem(self.graphicsItemTest)
+        self.graphicsItemTest.signalUpdateTheWorld.connect(self.letUpdateWorld)
 
+    @Slot()
+    def letUpdateWorld(self):
+        self.mainViewerInstance.viewport().update()
 
     #____
     def showTheWorld(self):
@@ -56,7 +61,7 @@ class MainWidget(QtWidgets.QWidget):
         self.mainViewerInstance.update()
 
         self.graphicsItemTest.moving([1, 1])
-        self.update()
+        self.mainViewerInstance.viewport().update()
 
     #____
     def generateMapBlock(self):

@@ -7,7 +7,7 @@ from ODummyControl import *
 
 if __name__ == "__main__":
     app = QApplication([])
-    dummyControl_ = DummyControl()
+    dummyControl_ = ODummyControl()
 
     dummyControl_.startTheWorld()
     dummyControl_.showTheWorld()
