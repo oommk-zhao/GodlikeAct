@@ -34,7 +34,6 @@ class OAbstractObject(QtCore.QObject):
         self.position = [random.randint(0,xRange), random.randint(0,yRange)]
 
     def activeObject(self):
-        pass
         self.eventGenerateTimer.start(1000)
 
     @Slot()

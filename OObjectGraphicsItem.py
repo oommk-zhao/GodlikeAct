@@ -9,8 +9,6 @@ import time
 
 class ObjectGraphicsItem(QGraphicsItem):
 
-    signalUpdateTheWorld = Signal()
-
     #____
     def __init__(self, parent = None):
         QGraphicsItem.__init__(self, parent)
@@ -81,9 +79,6 @@ class ObjectGraphicsItem(QGraphicsItem):
             self.processEventTimer.disconnect(self.processEventTimer)
             self.processEventTimer.stop()
             print ("inside B")
-
-        self.signalUpdateTheWorld.emit()
-
 
 
 

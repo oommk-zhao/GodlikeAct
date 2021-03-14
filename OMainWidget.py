@@ -49,7 +49,11 @@ class OMainWidget(QtWidgets.QWidget):
         self.graphicsItemTest.setPosition(2, 1)
         self.graphicsItemTest.setSize(200, 200)
         self.worldSceneInstance.addItem(self.graphicsItemTest)
-        self.graphicsItemTest.signalUpdateTheWorld.connect(self.letUpdateWorld)
+
+        self.testSceneUpdateTimer = QTimer(self)
+        self.testSceneUpdateTimer.timeout.connect(self.letUpdateWorld)
+
+
 
     @Slot()
     def letUpdateWorld(self):
@@ -59,6 +63,8 @@ class OMainWidget(QtWidgets.QWidget):
     def showTheWorld(self):
         self.show()
         self.mainViewerInstance.update()
+
+        self.testSceneUpdateTimer.start(1000)
 
         self.graphicsItemTest.moving([1, 1])
         self.mainViewerInstance.viewport().update()
