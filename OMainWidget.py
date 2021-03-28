@@ -45,29 +45,17 @@ class OMainWidget(QtWidgets.QWidget):
         self.generateMapBlock()
 
         self.generateObjects()
-        self.graphicsItemTest = ObjectGraphicsItem()
-        self.graphicsItemTest.setPosition(2, 1)
-        self.graphicsItemTest.setSize(200, 200)
-        self.worldSceneInstance.addItem(self.graphicsItemTest)
+        #self.graphicsItemTest = ObjectGraphicsItem()
+        #self.graphicsItemTest.setPosition(2, 1)
+        #self.graphicsItemTest.setSize(200, 200)
+        #self.worldSceneInstance.addItem(self.graphicsItemTest)
 
-        self.testSceneUpdateTimer = QTimer(self)
-        self.testSceneUpdateTimer.timeout.connect(self.letUpdateWorld)
-
-
-
-    @Slot()
-    def letUpdateWorld(self):
-        self.mainViewerInstance.viewport().update()
 
     #____
     def showTheWorld(self):
         self.show()
-        self.mainViewerInstance.update()
-
-        self.testSceneUpdateTimer.start(1000)
 
         self.graphicsItemTest.moving([1, 1])
-        self.mainViewerInstance.viewport().update()
 
     #____
     def generateMapBlock(self):
@@ -84,8 +72,7 @@ class OMainWidget(QtWidgets.QWidget):
 
     #____
     def generateObjects(self):
-        pass
-        #tempItem = ObjectGraphicsItem()
-        #tempItem.setPosition(2, 1)
-        #tempItem.setSize(200, 200)
-        #self.worldSceneInstance.addItem(tempItem)
+        tempItem = OObjectGraphicsItem()
+        tempItem.setPosition(2, 1)
+        tempItem.setSize(200, 200)
+        self.worldSceneInstance.addItem(tempItem)

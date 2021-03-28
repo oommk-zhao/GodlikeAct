@@ -19,8 +19,6 @@ class OAbstractObject(QtCore.QObject):
         self.eventGenerateTimer = QTimer()
         self.eventGenerateTimer.timeout.connect(self.requestToDo)
 
-        self.testValue = 1
-
         self.worldMapInstance = OAbstractMap(mapInstance)
 
     def where(self):
