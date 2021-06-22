@@ -20,3 +20,6 @@ QGraphicsView by default, will focus on the QGracphicsScene's center point.
 The items out side of QGraphicsScene, can be scrolled to be displayed.
 
 Lots of property like Anchor, Alignment can be modified to change Scene and View behavior.
+
+Kepp this repository until end of the July, to memory this as a demo sample project.
+Then will remove/erase, and leave a Tomb, to mourn.
